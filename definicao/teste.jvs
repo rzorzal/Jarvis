@@ -1,0 +1,4 @@
+//Comentario
+numeric x = 3;
+numeric y = 4;
+out("Pitagoras", x^2+y^2);

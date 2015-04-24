@@ -1,0 +1,6 @@
+string nome = in("Digite seu nome: ");
+if(nome != ""){
+	out("Ola ", nome);
+} else {
+	out("Ola desconhecido");
+}

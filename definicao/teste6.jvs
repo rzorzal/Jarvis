@@ -1,0 +1,5 @@
+string a = "ola ";
+string b = "mundo";
+string c = a + b;
+out(c);
+out("adeus");

@@ -1,0 +1,4 @@
+numeric a = in("Entre com a: ");
+numeric b = in("Entre com b: ");
+numeric c = in("Entre com c: ");
+out("Soma: ",a+b+c);

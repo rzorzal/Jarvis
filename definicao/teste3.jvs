@@ -1,0 +1,4 @@
+numeric contador = 10;
+while(contador){
+	contador = contador - 1;
+}

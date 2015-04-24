@@ -1,0 +1,120 @@
+Comentário de uma linha //
+Comentário de vários linhas /* */
+Exemplos:
+//Isso é uma comentário
+/*
+	Isso é um comentário
+*/
+
+---------------------------------------------------------
+
+Caractere de finalização de comando: ;
+Exemplo:
+Comando;
+
+---------------------------------------------------------
+
+Tipos de variáveis:
+	Armazenar numeros: numeric
+	Armazenar strings: string
+Exemplos:
+string cadeira;
+numeric ano;
+numeric kilos;
+
+---------------------------------------------------------
+
+Comando de entrada de dados:
+in(antes);
+onde antes é uma menssagem para ser exibida antes de entrar com os dados
+     O retorno da função é o que o usuario digitou
+Exemplo;
+string nome = in("Digite seu nome:");
+
+---------------------------------------------------------
+
+Comando de atribuição de valores e/ou expressões para variáveis:
+=
+Exemplos:
+string nome = "Ricardo";
+numeric valor = 3*4+12;
+
+---------------------------------------------------------
+
+Comando de exibição de dados:
+out(titulo,msg);
+	titulo é o titulo da janela
+	msg é a menssagem enviada, podendo passar variaveis
+Exemplos:
+string nome = in("Digite seu nome:");
+out("Exibindo o nome",nome);
+
+---------------------------------------------------------
+
+Expressões:
+	+  SOMA(TAMBÉM USADO PARA CONCATENAÇÃO DE STRINGS)
+	-  DIFERENÇA
+	*  MULTIPLICAÇÃO
+	/  DIVISÃO
+	^  POTENCIA
+	>  MAIOR
+	<  MENOR
+	<= MAIOR E IGUAL
+	>= MENOR E IGUAL
+	== IGUAL
+	|| OU
+	!  NÃO
+	&& E
+	!= DIFERENTE
+Exemplos:
+numeric a = 0;
+numeric c = 4
+numeric d = (a+c)*(a/c); // Resultado 0
+string b = a + " reais"; // Resultado "0 reais"
+numeric e = a < c;
+numeric f = a && c;
+
+---------------------------------------------------------
+
+Comando condicional:
+	if(expressão){
+		comando;
+	} else {
+		comando;
+	}
+	expressão deve ser numeric onde 0 é falso e qualquer outro valor será verdadeiro
+Exemplos:
+numeric a = 1;
+if(a){
+	out("",a)
+}
+numeric b = 0;
+if(b){
+	out("",b);
+} else {
+	out("certo",b);
+}
+
+---------------------------------------------------------
+
+Comando de repetição do tipo 'enquanto':
+	while(expressão){
+	
+	}
+	expressão deve ser numeric onde 0 é falso e qualquer outro valor será verdadeiro
+	caso expressão FALSO saia do loop
+Exemplos:
+while(1){
+	out("Feliz","Natal");
+}
+
+---------------------------------------------------------
+
+Observações relevantes:
+	Case-sensitive
+	As variaveis devem começar com uma letra se guidas de letras ou números
+	Uma string é definida por aspas duplas, exemplo: "Isso é uma string"
+	As variáveis devem ser definidas colocando o tipo seguidas de um espaço ou tabulação do nome podendo haver ou não atribuição de valor 
+	
+	
+	

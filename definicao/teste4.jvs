@@ -1,0 +1,13 @@
+numeric flag = 0;
+numeric a = 200;
+numeric b = 3;
+numeric c;
+while(!flag){
+	if(a - b <= 0){
+		a = 0;
+		flag = a;
+	} else {
+		a = a - b;
+	}
+}
+out("Acabou o programa");
