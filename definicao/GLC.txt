@@ -1,0 +1,37 @@
+inicio -> corpo <EOF>
+
+corpo -> declararVar comandos
+
+declararVar -> <VAR> listarVar <final_comando>
+
+listarVar -> <variavel> (<virgula> <variavel>)*
+
+comandos -> (comando)+
+
+comando -> atribuicao | se | enquanto | leia | exibr
+
+atribuicao -> <atribuicao> expressao <final_comando>
+
+se -> <condicional_if> <abre_parenteses> expressao <fecha_parenteses> <abre_chaves> comandos <fecha_chaves> (<condicional_else> <abre_chaves> comandos <fecha_chaves>)?
+
+enquanto -> <laco_while> <abre_parentesis> expressao <fecha_parenteses> <abre_chaves> comandos <fecha_chaves>
+
+leia -> <entrada_dados> <abre_parenteses> <string> <fecha_parenteses>
+
+exibe -> <saida_dados> <abre_parenteses> <string>  (<virgula> expressao|<numeric>|<variavel>|<string>)* <fecha_parenteses>
+
+expressao -> termo (<ou> termo)*
+
+termo -> fator (<e> fator)*
+
+fator -> base (<maior> base | <menor> base | <maior_igual> base | <menor_igual> base | <diferente> base | <igual> base)*
+
+base -> termo2 (<soma> termo2 | <diferenca> termo2)*
+
+termo2 -> fator2 (<multiplicacao> fator2 | <divisao> fator2)*
+
+fator2 -> base2 (<potencia> base2)*
+
+base2 -> (<nao>)* algarismo
+
+algarismo -> <abre_parenteses> expressao <fecha_parenteses> | <numeric>
