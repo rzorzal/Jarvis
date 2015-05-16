@@ -44,11 +44,19 @@ options {
 
 PARSER_BEGIN(Jarvis)
 import java.io.*;
+import java.util.*;
+
 public class Jarvis {
+  static HashMap<Simbolo> tab = new HashMap<Simbolo>();
 
   public static void main(String args[]) throws ParseException {
-    Jarvis parser = new Jarvis(new FileInputStream(args[0]));
-    parser.Input();
+    Jarvis parser;
+	try {
+		parser = new Jarvis(new FileInputStream(args[0]));
+		parser.Input();
+	} catch (FileNotFoundException e) {
+		e.printStackTrace();
+	}
   }
 
 }
@@ -145,17 +153,63 @@ void corpo():{}
 //--------------------------------------------------------------------------------------------------------------------------------------------
 void declararVar():{}
 {
-    "numeric" declararNum() | "string" declararStr()
+    <NUMERIC>{tipo='N';} declararNum() | <STRING> {tipo='S';}declararStr()
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
-void declararNum():{}
+void declararNum():{ Simbolo simb; Token t; char tipo; }
 {
-    <VARIAVEL> <ATRIBUICAO> expressao() <FINAL_COMANDO> | <VARIAVEL> <FINAL_COMANDO> | <VARIAVEL> <ATRIBUICAO> <NUMERIC> <FINAL_COMANDO>
+    t=<VARIAVEL>
+    {
+      simb = new Simbolo();
+      simb.setNome(t.image);
+      simb.setTipo(tp);
+      simb.setReferencia(tp);
+      tab.put(simb.nome, simb);
+    }
+     <ATRIBUICAO> expressao() <FINAL_COMANDO>
+
+    | t=<VARIAVEL>
+	{
+      simb = new Simbolo();
+      simb.setNome(t.image);
+      simb.setTipo(tp);
+      simb.setReferencia(tp);
+      tab.put(simb.nome, simb);
+    }
+    <FINAL_COMANDO>
+
+    | t=<VARIAVEL>
+	{
+      simb = new Simbolo();
+      simb.setNome(t.image);
+      simb.setTipo(tp);
+      simb.setReferencia(tp);
+      tab.put(simb.nome, simb);
+    }
+    <ATRIBUICAO> <NUMERIC> <FINAL_COMANDO>
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
-void declararStr():{}
+void declararStr():{ Simbolo simb; Token t; char tipo; }
 {
-    <VARIAVEL> <FINAL_COMANDO> | <VARIAVEL> <ATRIBUICAO> <STRING> <FINAL_COMANDO>
+    t=<VARIAVEL>
+	{
+	  simb = new Simbolo();
+      simb.setNome(t.image);
+      simb.setTipo(tp);
+      simb.setReferencia(tp);
+      tab.put(simb.nome, simb);
+	} 
+    <FINAL_COMANDO>
+
+    | t=<VARIAVEL>
+	{
+	  simb = new Simbolo();
+      simb.setNome(t.image);
+      simb.setTipo(tp);
+      simb.setReferencia(tp);
+      tab.put(simb.nome, simb);
+	}
+    <ATRIBUICAO> <STRING> <FINAL_COMANDO>
 }
 //--------------------------------------------------------------------------------------------------------------------------------------------
 void comandos():{}
